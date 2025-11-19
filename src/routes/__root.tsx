@@ -52,11 +52,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           ]}
         />
         <Scripts />
-        <iframe
-          src="https://berrydesk.com/bubble/j97dp6bx1x916r0vzcsagb7fyh7vmbc0?position=bottom-right"
-          title="BerryDesk Chat"
-          style={{ border: 'none', position: 'fixed', bottom: 0, right: 0, width: '100%', height: '100%', zIndex: 9999 }}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.berrydeskConfig = {
+    agentId: "j97dp6bx1x916r0vzcsagb7fyh7vmbc0",
+    position: "bottom-right"
+  };
+`,
+          }}
         />
+        <script src="https://berrydesk.com/api/embed/j97dp6bx1x916r0vzcsagb7fyh7vmbc0" async />
       </body>
     </html>
   )
